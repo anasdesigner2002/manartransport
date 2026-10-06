@@ -15,8 +15,8 @@ type CityConfig = {
 };
 
 type CityData = {
-  city: CityKey;
-  date: { gregorian: string; hijri: string };
+  city?: CityKey;
+  date?: { gregorian?: string; hijri?: string };
   timings: Record<string, string>;
   weather: {
     temperature: number;
@@ -73,10 +73,15 @@ function formatLocalDate(date: Date) {
 }
 
 async function loadCityData(city: CityConfig): Promise<CityData> {
-  const response = await fetch(`/api/holy-cities?city=${city.key}`);
+  const response = await fetch(`/api/holy-cities?city=${city.key}&version=2`, { cache: "no-store" });
   if (!response.ok) throw new Error("Live city data is temporarily unavailable.");
   const data = await response.json() as CityData;
-  if (data.city !== city.key || !data.date?.gregorian || !data.timings) {
+  const requiredPrayerNames = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
+  if (
+    (data.city !== undefined && data.city !== city.key) ||
+    !data.timings ||
+    requiredPrayerNames.some(name => typeof data.timings[name] !== "string")
+  ) {
     throw new Error(`Live prayer schedule for ${city.name} is invalid.`);
   }
   return data;
@@ -142,7 +147,7 @@ export default function PilgrimageUtilities() {
       </div>
       <div className="pilgrimage-utilities__panel" role="tabpanel">
         <div className="pilgrimage-utilities__panel-head">
-          <div><span className="eyebrow">{activeCity.name}</span><h3>Prayer &amp; local conditions</h3>{activeData && <small className="pilgrimage-schedule-date">Prayer schedule: {activeData.date.gregorian}{activeData.date.hijri ? ` · Hijri ${activeData.date.hijri}` : ""}</small>}</div>
+          <div><span className="eyebrow">{activeCity.name}</span><h3>Prayer &amp; local conditions</h3>{activeData && <small className="pilgrimage-schedule-date">Prayer schedule: {activeData.date?.gregorian || formatLocalDate(now)}{activeData.date?.hijri ? ` · Hijri ${activeData.date.hijri}` : ""}</small>}</div>
           <div className="pilgrimage-clock"><span>Saudi local date &amp; time</span><strong>{formatClock(now)}</strong><small>{formatLocalDate(now)}</small></div>
         </div>
         {isLoading ? <div className="pilgrimage-utilities__status">Loading live city details...</div> : errors[selectedCity] && !activeData ? <div className="pilgrimage-utilities__status">{errors[selectedCity]}</div> : <>
