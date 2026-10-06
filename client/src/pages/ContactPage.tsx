@@ -104,7 +104,7 @@ export default function ContactPage() {
           </ol>
           <button
             className="gold-button gold-button--full"
-            onClick={openBooking}
+            onClick={() => openBooking()}
           >
             <FontAwesomeIcon icon={faMessage} /> Open booking form
           </button>

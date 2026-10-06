@@ -6,6 +6,7 @@ export type BookingData = {
   whatsapp: string;
   travelDate: string;
   tripDetails: string;
+  vehicleName?: string;
   notes?: string;
 };
 
@@ -26,6 +27,7 @@ export function buildWhatsAppMessage(data: BookingData) {
     `Email: ${data.email}`,
     `WhatsApp: ${data.whatsapp}`,
     `Travel Date: ${data.travelDate}`,
+    `Vehicle: ${data.vehicleName?.trim() || "No specific vehicle selected"}`,
     `Trip Details: ${data.tripDetails}`,
     `Additional Notes: ${data.notes?.trim() || "None"}`,
   ].join("\n");

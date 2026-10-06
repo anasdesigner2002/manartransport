@@ -152,7 +152,7 @@ export default function Home() {
             </h2>
           </div>
           <div className="cta-actions">
-            <button className="gold-button" onClick={openBooking}>
+            <button className="gold-button" onClick={() => openBooking()}>
               Start a booking <FontAwesomeIcon icon={faMessage} />
             </button>
             <Link className="text-link text-link--light" href="/contact">

@@ -66,7 +66,7 @@ p { color: var(--muted); line-height: 1.75; }
 .nav-group:hover .nav-chevron { transform: rotate(180deg); }
 .nav-dropdown { position: absolute; top: calc(100% + 6px); left: 50%; width: 235px; padding: 14px; border: 1px solid var(--line-gold); border-radius: 14px; background: rgba(17,19,24,.97); box-shadow: var(--shadow); opacity: 0; pointer-events: none; transform: translate(-50%, -8px) scale(.98); transition: opacity .2s var(--ease-out), transform .2s var(--ease-out); }
 .nav-dropdown::before { content: ""; position: absolute; top: -7px; left: 0; width: 100%; height: 8px; }
-.nav-group.is-open .nav-dropdown, .nav-group:focus-within .nav-dropdown { opacity: 1; pointer-events: auto; transform: translate(-50%, 0) scale(1); }
+.nav-group.is-open .nav-dropdown { opacity: 1; pointer-events: auto; transform: translate(-50%, 0) scale(1); }
 .dropdown-kicker { padding: 2px 10px 10px; color: var(--gold); font-size: 9px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
 .dropdown-link, .dropdown-view-all { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px; border-radius: 8px; color: #c8cad0; font-size: 12px; transition: background .2s ease, color .2s ease; }
 .dropdown-link:hover, .dropdown-view-all:hover { background: rgba(197,164,109,.11); color: var(--gold-bright); }
@@ -234,6 +234,7 @@ p { color: var(--muted); line-height: 1.75; }
 .pilgrimage-clock { display: grid; gap: 4px; justify-items: end; }
 .pilgrimage-clock span { color: #8e9198; font-size: 10px; text-transform: uppercase; letter-spacing: .08em; }
 .pilgrimage-clock strong { color: var(--gold-bright); font-size: 20px; font-weight: 700; }
+.pilgrimage-clock small, .pilgrimage-schedule-date { color: #8e9198; font-size: 10px; }
 .pilgrimage-utilities__grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 14px; }
 .pilgrimage-prayers, .pilgrimage-weather { min-height: 218px; padding: 18px; border: 1px solid var(--line); border-radius: 12px; background: #11141a; }
 .pilgrimage-block-label { display: flex; align-items: center; gap: 8px; margin-bottom: 15px; color: var(--gold-bright); font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
@@ -401,7 +402,7 @@ p { color: var(--muted); line-height: 1.75; }
 .login-card h2 { margin: 16px 0 25px; font-size: 42px; }
 .login-card label { display: grid; gap: 8px; margin-bottom: 16px; color: #c1c2c7; font-size: 11px; }
 .login-card input, .booking-form input, .booking-form textarea { width: 100%; border: 1px solid rgba(255,255,255,.14); border-radius: 9px; outline: none; background: rgba(0,0,0,.22); color: var(--cream); font-size: 13px; }
-.login-card input, .booking-form input { padding: 13px 14px; }
+.login-card input, .booking-form input { padding: 10px 12px; }
 .login-card input:focus, .booking-form input:focus, .booking-form textarea:focus, .chatbot-form input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(197,164,109,.1); }
 .login-card p { margin: 17px 0 0; font-size: 11px; }
 .commission-page { display: grid; grid-template-columns: .8fr 1.2fr; gap: 100px; }
@@ -534,19 +535,20 @@ html.light .footer-bottom { color: #858078; }
 
 /* Modal / chatbot / footer */
 .modal-backdrop { position: fixed; inset: 0; z-index: 110; display: grid; place-items: center; padding: 24px; overflow: auto; background: rgba(4,5,6,.78); backdrop-filter: blur(15px); }
-.booking-modal { position: relative; width: min(920px, 100%); display: grid; grid-template-columns: .82fr 1.18fr; overflow: hidden; border: 1px solid var(--line-gold); border-radius: 21px; background: #15171c; box-shadow: 0 35px 100px rgba(0,0,0,.52); }
-.modal-close { position: absolute; top: 18px; right: 18px; z-index: 2; display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; background: rgba(0,0,0,.25); color: var(--cream); cursor: pointer; }
+.booking-modal { position: relative; width: min(920px, 100%); max-height: calc(100vh - 48px); max-height: calc(100dvh - 48px); display: grid; grid-template-columns: .82fr 1.18fr; overflow: auto; border: 1px solid var(--line-gold); border-radius: 21px; background: #15171c; box-shadow: 0 35px 100px rgba(0,0,0,.52); }
+.modal-close { position: sticky; top: 12px; z-index: 3; grid-column: 1 / -1; justify-self: end; display: grid; place-items: center; width: 34px; height: 34px; margin-bottom: -34px; border: 1px solid var(--line); border-radius: 50%; background: rgba(0,0,0,.55); color: var(--cream); cursor: pointer; }
 .booking-modal__intro { padding: 52px 34px; background: linear-gradient(145deg, rgba(197,164,109,.15), rgba(17,19,24,.2)); }
 .booking-modal__intro h2 { margin: 18px 0; font-size: 43px; }
 .booking-modal__intro p { font-size: 12px; }
 .booking-flow { display: grid; gap: 13px; margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); }
 .booking-flow span { display: flex; align-items: center; gap: 10px; color: #b6b7bd; font-size: 10px; }
 .booking-flow b { color: var(--gold); font-size: 9px; }
-.booking-form { display: grid; gap: 17px; padding: 52px 34px 34px; }
+.booking-form { display: grid; gap: 12px; padding: 44px 34px 28px; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.booking-form__vehicle { grid-column: 1 / -1; }
 .booking-form label { display: grid; gap: 8px; color: #c6c6ca; font-size: 11px; }
 .booking-form input::placeholder, .booking-form textarea::placeholder { color: #666970; }
-.booking-form textarea { min-height: 80px; padding: 13px 14px; resize: vertical; }
+.booking-form textarea { min-height: 64px; padding: 10px 12px; resize: vertical; }
 .input-with-icon { position: relative; }
 .input-with-icon input { padding-right: 38px; }
 .input-with-icon svg { position: absolute; top: 50%; right: 13px; color: var(--gold); font-size: 13px; pointer-events: none; transform: translateY(-50%); }

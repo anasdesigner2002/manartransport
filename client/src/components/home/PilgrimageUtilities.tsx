@@ -15,6 +15,8 @@ type CityConfig = {
 };
 
 type CityData = {
+  city: CityKey;
+  date: { gregorian: string; hijri: string };
   timings: Record<string, string>;
   weather: {
     temperature: number;
@@ -61,10 +63,23 @@ function formatClock(date: Date) {
   }).format(date);
 }
 
+function formatLocalDate(date: Date) {
+  return new Intl.DateTimeFormat("en-SA", {
+    timeZone: "Asia/Riyadh",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(date);
+}
+
 async function loadCityData(city: CityConfig): Promise<CityData> {
   const response = await fetch(`/api/holy-cities?city=${city.key}`);
   if (!response.ok) throw new Error("Live city data is temporarily unavailable.");
-  return (await response.json()) as CityData;
+  const data = await response.json() as CityData;
+  if (data.city !== city.key || !data.date?.gregorian || !data.timings) {
+    throw new Error(`Live prayer schedule for ${city.name} is invalid.`);
+  }
+  return data;
 }
 
 export default function PilgrimageUtilities() {
@@ -127,8 +142,8 @@ export default function PilgrimageUtilities() {
       </div>
       <div className="pilgrimage-utilities__panel" role="tabpanel">
         <div className="pilgrimage-utilities__panel-head">
-          <div><span className="eyebrow">{activeCity.name}</span><h3>Prayer &amp; local conditions</h3></div>
-          <div className="pilgrimage-clock"><span>Saudi local time</span><strong>{formatClock(now)}</strong></div>
+          <div><span className="eyebrow">{activeCity.name}</span><h3>Prayer &amp; local conditions</h3>{activeData && <small className="pilgrimage-schedule-date">Prayer schedule: {activeData.date.gregorian}{activeData.date.hijri ? ` · Hijri ${activeData.date.hijri}` : ""}</small>}</div>
+          <div className="pilgrimage-clock"><span>Saudi local date &amp; time</span><strong>{formatClock(now)}</strong><small>{formatLocalDate(now)}</small></div>
         </div>
         {isLoading ? <div className="pilgrimage-utilities__status">Loading live city details...</div> : errors[selectedCity] && !activeData ? <div className="pilgrimage-utilities__status">{errors[selectedCity]}</div> : <>
           <div className="pilgrimage-utilities__grid">

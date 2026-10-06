@@ -9,7 +9,7 @@ import {
   faSun,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { navGroups } from "@/data/siteData";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -24,6 +24,10 @@ export default function Header() {
   const [expanded, setExpanded] = useState<string | null>(null);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    setOpenDropdown(null);
+  }, [location]);
 
   const submitSearch = (event: React.FormEvent) => {
     event.preventDefault();
