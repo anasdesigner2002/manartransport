@@ -8,7 +8,7 @@ import { handleHolyCityData } from "./server/holyCities";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 import { handleUnsplashImage } from "./server/unsplash";
 
-process.loadEnvFile?.();
+// process.loadEnvFile?.();
 
 // =============================================================================
 // Manus Debug Collector - Vite Plugin
