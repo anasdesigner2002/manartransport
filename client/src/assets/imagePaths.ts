@@ -1,3 +1,6 @@
+import toyotaCoaster from "./images/coaster.jpg";
+import toyotaCoaster1 from "./images/coaster1.jpg";
+
 export const imageSources = {
   // Homepage banner 2 and hero-side card.
   makkah: "/images/makkah.jpg",
@@ -30,6 +33,8 @@ export const imageSources = {
   gmcYukon: "/images/GMC%20Yukon%20XL-1.jpg",
   bus1: "/images/Bus-1.jpg",
   bus2: "/images/Bus-2.jpg",
+  toyotaCoaster,
+  toyotaCoaster1,
   hyundaiStarex1: "/images/Hyundai%20statex-1.jpg",
   hyundaiStarex2: "/images/Hyundai%20statex-2.jpg",
   hyundaiStarex3: "/images/Hyundai%20statex-3.jpg",

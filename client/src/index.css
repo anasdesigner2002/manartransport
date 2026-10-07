@@ -545,8 +545,12 @@ html.light .footer-bottom { color: #858078; }
 .booking-flow b { color: var(--gold); font-size: 9px; }
 .booking-form { display: grid; gap: 12px; padding: 44px 34px 28px; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-.booking-form__vehicle { grid-column: 1 / -1; }
 .booking-form label { display: grid; gap: 8px; color: #c6c6ca; font-size: 11px; }
+.booking-vehicle-options { display: grid; gap: 10px; min-width: 0; border: 0; padding: 0; }
+.booking-vehicle-options legend { margin-bottom: 9px; color: #c6c6ca; font-size: 11px; }
+.booking-vehicle-options__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.booking-form .booking-vehicle-option { display: flex; align-items: center; gap: 9px; min-width: 0; padding: 10px; border: 1px solid rgba(255,255,255,.14); border-radius: 9px; background: rgba(0,0,0,.16); cursor: pointer; }
+.booking-form .booking-vehicle-option input { width: 15px; height: 15px; flex: 0 0 15px; margin: 0; padding: 0; accent-color: var(--gold); }
 .booking-form input::placeholder, .booking-form textarea::placeholder { color: #666970; }
 .booking-form textarea { min-height: 64px; padding: 10px 12px; resize: vertical; }
 .input-with-icon { position: relative; }

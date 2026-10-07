@@ -164,7 +164,7 @@ export default function ContactPage() {
           <p className="faq-sources">
             Reference reading:{" "}
             <a
-              href="https://www.visitsaudi.com/en/faq"
+              href="#"
               target="_blank"
               rel="noreferrer"
             >
@@ -215,8 +215,8 @@ export default function ContactPage() {
           </div>
           <div className="contact-map">
             <iframe
-              title="Manar Transport Islamabad office location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2022.7058985030978!2d72.97110096104272!3d33.60913832292609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df96937c1d1d3f%3A0x121a0d821d48c9a3!2sI-14%2F4%20I-14%2C%20Islamabad%2C%20Pakistan!5e1!3m2!1sen!2s!4v1790346066340!5m2!1sen!2s"
+              title="Manar Transport Makkah office location"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(contact.address)}&output=embed`}
               loading="lazy"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen

@@ -44,7 +44,7 @@ The build outputs the client bundle and the small static-serving wrapper used by
 
 The Vite frontend builds to `dist/public`; Vercel serves the API routes in `api/` as serverless functions. `vercel.json` sets the output directory and rewrites client-side routes to `/index.html` while Vercel's filesystem routing keeps the API functions available.
 
-Use the repository root as the Vercel project root and `pnpm run build` (or `npm run build`) as the build command. The `/api/holy-cities` function fetches prayer times and weather for Makkah and Madinah. No API key is needed for those data sources. Set `UNSPLASH_ACCESS_KEY` in the Vercel project environment variables only if dynamic Unsplash images are desired; the image endpoint has a fallback.
+Use the repository root as the Vercel project root and `pnpm run build` (or `npm run build`) as the build command. The `/api/holy-cities` function fetches prayer times and weather for Makkah and Madinah. No API key is needed for those data sources. Website images are served from the local `client/public/images` collection.
 
 The Saudi local clock is formatted in the browser using the `Asia/Riyadh` time zone and does not depend on the API.
 

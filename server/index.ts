@@ -3,7 +3,6 @@ import { createServer } from "http";
 import path from "path";
 import { fileURLToPath } from "url";
 import { handleHolyCityData } from "./holyCities.js";
-import { handleUnsplashImage } from "./unsplash.js";
 
 process.loadEnvFile?.();
 
@@ -14,9 +13,6 @@ async function startServer() {
   const app = express();
   const server = createServer(app);
 
-  app.get("/api/unsplash/image", (req, res) => {
-    void handleUnsplashImage(req, res);
-  });
   app.get("/api/holy-cities", (req, res) => {
     void handleHolyCityData(req, res);
   });

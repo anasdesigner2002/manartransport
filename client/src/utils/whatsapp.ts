@@ -6,7 +6,7 @@ export type BookingData = {
   whatsapp: string;
   travelDate: string;
   tripDetails: string;
-  vehicleName?: string;
+  vehicleNames?: string[];
   notes?: string;
 };
 
@@ -20,6 +20,7 @@ const normalizeWhatsAppNumber = (phoneNumber: string) => {
 const waNumber = normalizeWhatsAppNumber(contact.whatsapp);
 
 export function buildWhatsAppMessage(data: BookingData) {
+  const selectedVehicles = data.vehicleNames?.filter(vehicle => vehicle.trim());
   return [
     "New Booking Request - Manar Transport",
     "",
@@ -27,7 +28,7 @@ export function buildWhatsAppMessage(data: BookingData) {
     `Email: ${data.email}`,
     `WhatsApp: ${data.whatsapp}`,
     `Travel Date: ${data.travelDate}`,
-    `Vehicle: ${data.vehicleName?.trim() || "No specific vehicle selected"}`,
+    ...(selectedVehicles?.length ? [`Vehicles: ${selectedVehicles.join(", ")}`] : []),
     `Trip Details: ${data.tripDetails}`,
     `Additional Notes: ${data.notes?.trim() || "None"}`,
   ].join("\n");

@@ -143,8 +143,8 @@ export const vehicles: Vehicle[] = [
     category: "Economy Travel",
     intro: "Top Choice for Economy Travel",
     description: economyTravelDescription,
-    image: "",
-    gallery: [],
+    image: imageSources.toyotaCoaster,
+    gallery: [imageSources.toyotaCoaster, imageSources.toyotaCoaster1],
     features: economyTravelFeatures,
     seats: "19 passengers",
     luggage: "20 bags",
@@ -251,10 +251,10 @@ export const contactFaqs = {
 export const contact = {
   whatsapp: "+966590832169",
   email: "manartransportservice@gmail.com",
-  address: "Islamabad office, South Service Road 377, I-14/4",
+  address: "Aziziyah, Makkah, Saudi Arabia",
   offices: [
-    { name: "Islamabad office", address: "South Service Road 377, I-14/4, Islamabad, Pakistan" },
     { name: "Makkah office", address: "Aziziyah, Makkah, Saudi Arabia" },
+    { name: "Islamabad office", address: "South Service Road 377, I-14/4, Islamabad, Pakistan" },
   ],
 };
 

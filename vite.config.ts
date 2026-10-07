@@ -6,7 +6,6 @@ import path from "node:path";
 import { defineConfig, type Plugin, type ViteDevServer } from "vite";
 import { handleHolyCityData } from "./server/holyCities";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
-import { handleUnsplashImage } from "./server/unsplash";
 
 // process.loadEnvFile?.();
 
@@ -207,17 +206,6 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-function vitePluginUnsplashProxy(): Plugin {
-  return {
-    name: "unsplash-image-proxy",
-    configureServer(server: ViteDevServer) {
-      server.middlewares.use("/api/unsplash/image", (req, res) => {
-        void handleUnsplashImage(req, res);
-      });
-    },
-  };
-}
-
 function vitePluginHolyCitiesProxy(): Plugin {
   return {
     name: "holy-cities-data-proxy",
@@ -229,7 +217,7 @@ function vitePluginHolyCitiesProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy(), vitePluginUnsplashProxy(), vitePluginHolyCitiesProxy()];
+const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy(), vitePluginHolyCitiesProxy()];
 
 export default defineConfig({
   plugins,
