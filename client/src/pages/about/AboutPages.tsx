@@ -36,7 +36,7 @@ export function AboutPage() {
             <em>for your sacred journey.</em>
           </h2>
         </div>
-        <div>
+        <div className="about-intro__copy">
           <p>
             At Manar Transport, we are committed to enriching your sacred
             journey with exceptional, seamless, and dependable transportation

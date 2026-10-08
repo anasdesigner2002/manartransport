@@ -359,7 +359,7 @@ p { color: var(--muted); line-height: 1.75; }
 .vehicle-specs strong { color: var(--cream); font-size: 11px; font-weight: 600; }
 .about-intro { display: grid; grid-template-columns: .9fr 1.1fr; gap: 90px; align-items: start; }
 .about-intro h2 { max-width: 490px; font-size: clamp(2.8rem, 5vw, 4.5rem); line-height: .98; }
-.about-intro p { max-width: 560px; font-size: 18px; line-height: 1.8; }
+.about-intro__copy p { max-width: 620px; color: var(--cream); font-size: 20px; line-height: 1.85; }
 .about-intro__logo { display: block; width: 160px; height: 160px; margin: 0 0 24px -10px; object-fit: contain; }
 .about-values .section-heading { max-width: 760px; }
 .about-values .values-grid > div { min-height: 220px; padding: 30px; }
@@ -687,6 +687,7 @@ html.light .trust-badge span { color: #d1b779; }
   .trust-experience { padding: 72px 0; }
   .trust-experience h2 { max-width: 700px; font-size: clamp(40px, 6vw, 48px); }
   .section--split, .section--impact, .section--faq, .detail-grid, .vehicle-detail, .about-intro, .about-impact, .editorial-page, .legal-page, .commission-page, .contact-grid, .contact-locations, .info-faq__layout { grid-template-columns: 1fr; gap: 50px; }
+  .about-intro__copy p { font-size: 18px; }
   .split-art { min-height: 480px; }
   .section--impact { gap: 45px; }
   .experience-band { grid-template-columns: 1fr; }
