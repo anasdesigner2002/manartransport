@@ -1,9 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowRight,
-  faCompass,
-  faEnvelope,
-  faHeart,
+  faCoins,
   faMessage,
   faShieldHalved,
 } from "@fortawesome/free-solid-svg-icons";
@@ -11,9 +8,8 @@ import { Link } from "wouter";
 import { useEffect } from "react";
 import { PageIntro, BookingCTA } from "@/pages/PageBlocks";
 import { SectionHeading } from "@/components/ui/BrandPrimitives";
-import { contact, imageSources } from "@/data/siteData";
+import { imageSources } from "@/data/siteData";
 import { setPageMetadata } from "@/utils/metadata";
-import { buildWhatsAppContactUrl } from "@/utils/whatsapp";
 
 export function AboutPage() {
   useEffect(() => {
@@ -25,128 +21,73 @@ export function AboutPage() {
   return (
     <div>
       <PageIntro
-        eyebrow="About Manar"
-        title="The journey is part of the welcome."
-        body="Manar Transport supports pilgrims and travel partners with private transportation across Saudi Arabia, with comfort, safety, and punctuality at the heart of every journey."
+        eyebrow="About Us – Manar Transport"
+        title="Your Trusted Travel Partner for Hajj & Umrah"
+        body="Welcome to Manar Transport – Your Trusted Travel Partner for Hajj & Umrah"
         image={imageSources.company}
       />
       <section className="section container about-intro">
         <div>
           <img className="about-intro__logo" src="/images/logo.png" alt="Manar Transport logo" />
-          <span className="eyebrow">Company overview</span>
+          <span className="eyebrow">About Manar Transport</span>
           <h2>
-            Built for movement
+            Dependable travel
             <br />
-            <em>that matters.</em>
+            <em>for your sacred journey.</em>
           </h2>
         </div>
         <div>
           <p>
-            Welcome to Manar Transport, your travel partner for Hajj and Umrah.
-            We provide private taxi and VIP transfers for guests travelling
-            across Saudi Arabia, making each journey feel more comfortable,
-            dependable, and straightforward.
+            At Manar Transport, we are committed to enriching your sacred
+            journey with exceptional, seamless, and dependable transportation
+            services across Saudi Arabia. Specializing in VIP transfers and
+            private taxi solutions, we cater to pilgrims and travel partners
+            seeking comfort, safety, and punctuality during their holy
+            pilgrimage.
           </p>
           <p>
-            Whether you need a Jeddah Airport transfer to Makkah, a journey
-            between Makkah and Madinah, or local transportation in the holy
-            cities, our team helps coordinate the details from pick-up through
-            arrival. We also support travel partners and agencies with clear,
-            direct booking coordination.
-          </p>
-          <p>
-            Arrange airport pick-ups and drop-offs, hotel transfers, and
-            personalized Ziyarat and historical sightseeing journeys in
-            Makkah, Madinah, Jeddah, Taif, and Badr. Share your route and
-            requirements in advance so the team can follow up on availability
-            and the arrangements for your trip.
+            Whether you require a swift Jeddah Airport to Makkah taxi, a
+            peaceful transfer from Makkah to Madinah, or convenient local
+            travel within the holy cities, Manar Transport ensures a
+            stress-free experience from start to finish.
           </p>
         </div>
       </section>
-      <section className="section section--dark">
+      <section className="section section--dark about-values">
         <div className="container">
           <SectionHeading
-            eyebrow="What guides us"
-            title="Our mission lives in the details."
-            body="We focus on the practical details that help pilgrims, families, and travel partners feel more prepared on the road."
+            eyebrow="Why Choose Manar Transport?"
+            title="Travel with comfort and confidence."
+            body="Thoughtful support, comfortable vehicles, and clear pricing help make every journey feel easier."
           />
           <div className="values-grid">
             <div>
-              <FontAwesomeIcon icon={faShieldHalved} />
-              <h3>Safety &amp; comfort</h3>
-              <p>
-                Travel in a modern, well-maintained choice of sedans, SUVs, and
-                family vans, with care for your route, group, and luggage.
-              </p>
-            </div>
-            <div>
-              <FontAwesomeIcon icon={faCompass} />
-              <h3>Reliability</h3>
-              <p>
-                Our support team is available around the clock to coordinate
-                bookings, flight adjustments, and travel questions.
-              </p>
-            </div>
-            <div>
-              <FontAwesomeIcon icon={faHeart} />
-              <h3>Hospitality</h3>
-              <p>
-                Professional, multilingual local drivers provide courteous
-                service and help you travel with greater peace of mind.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="section container about-impact">
-        <div
-          className="about-impact__image"
-          style={{ backgroundImage: `url(${imageSources.story})` }}
-        />
-        <div>
-          <span className="eyebrow">Our impact</span>
-          <h2>
-            Peace of mind
-            <br />
-            <em>on every route.</em>
-          </h2>
-          <p>
-            Avoid the uncertainty of last-minute taxi arrangements and
-            unpredictable local fares. We offer fixed, competitive fares with
-            no hidden charges. Arrange your ride in advance through WhatsApp or
-            our online platform, and our team will follow up to confirm
-            availability and trip details.
-          </p>
-          <p>
-            From airport arrivals to your onward journey, we bring together
-            private city transfers, intercity routes, and guided Ziyarat
-            journeys. Travel agencies and tour operators can also contact our
-            team to discuss booking arrangements suited to their guests.
-          </p>
-          <div className="about-impact__contacts" aria-label="Contact Manar Transport">
-            <a
-              className="text-link"
-              href={buildWhatsAppContactUrl()}
-              target="_blank"
-              rel="noreferrer"
-            >
               <FontAwesomeIcon icon={faMessage} />
-              WhatsApp {contact.whatsapp}
-            </a>
-            <a className="text-link" href={`mailto:${contact.email}`}>
-              <FontAwesomeIcon icon={faEnvelope} />
-              {contact.email}
-            </a>
+              <h3>24/7 Dedicated Support</h3>
+              <p>
+                Our customer assistance team is available round-the-clock to
+                manage your bookings, flight adjustments, and travel queries.
+              </p>
+            </div>
+            <div>
+              <FontAwesomeIcon icon={faShieldHalved} />
+              <h3>Modern &amp; Well-Maintained Fleet</h3>
+              <p>
+                Travel in complete luxury and safety with our updated fleet of
+                sedans, SUVs, and spacious family vans.
+              </p>
+            </div>
+            <div>
+              <FontAwesomeIcon icon={faCoins} />
+              <h3>Transparent Pricing</h3>
+              <p>
+                We believe in honesty and clarity. Know your fare before you
+                travel, with no hidden charges.
+              </p>
+            </div>
           </div>
-          <p className="about-impact__pricing-note">
-            Confirm your route and agreed fare with the team before travel.
-          </p>
-          <Link className="text-link" href="/about/our-story">
-            Read our story <FontAwesomeIcon icon={faArrowRight} />
-          </Link>
         </div>
       </section>
-      <BookingCTA />
     </div>
   );
 }
