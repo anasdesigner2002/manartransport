@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faCarSide, faCheck, faCirclePlay, faClock, faGem, faHeadset, faLandmark, faMosque, faPlaneDeparture, faRoad, faRoute, faShieldHalved, faStar, faSuitcaseRolling, faVolumeHigh, faVolumeXmark } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faCarSide, faCheck, faCircleCheck, faCirclePlay, faClock, faGem, faHeadset, faLandmark, faMosque, faPlaneDeparture, faRoad, faRoute, faShieldHalved, faStar, faSuitcaseRolling, faVolumeHigh, faVolumeXmark } from "@fortawesome/free-solid-svg-icons";
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { Link } from "wouter";
 import { useEffect, useRef, useState } from "react";
@@ -26,6 +26,74 @@ export function Hero() {
 }
 
 export function Ticker() { return <div className="ticker"><div className="ticker-track">{[...tickerItems, ...tickerItems].map((item, index) => <span key={`${item}-${index}`}><i />{item}</span>)}</div></div>; }
+export function TrustExperience() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    if (!("IntersectionObserver" in window)) {
+      setIsVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.15 });
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      className={`trust-experience${isVisible ? " is-visible" : ""}`}
+      aria-labelledby="trust-experience-title"
+    >
+      <div className="container trust-experience__inner">
+        <span className="trust-experience__eyebrow">
+          Trusted by 1,000+ Customers
+        </span>
+        <h2 id="trust-experience-title">
+          <span>5+</span> Years of Trusted
+          <br className="trust-experience__desktop-break" /> Transportation
+          Service
+        </h2>
+        <p className="trust-experience__subheading">
+          Serving Pilgrims Since 2020
+        </p>
+        <p className="trust-experience__summary">
+          Over the years, we have provided reliable and comfortable
+          transportation services to 1,000+ customers travelling across
+          Makkah, Madinah, Jeddah, and surrounding destinations.
+        </p>
+        <p className="trust-experience__established">
+          Established 8 October 2020
+        </p>
+        <div className="trust-experience__badges">
+          <div className="trust-badge">
+            <FontAwesomeIcon icon={faCircleCheck} aria-hidden="true" />
+            <div>
+              <span>Trusted Service</span>
+              <strong>5+ Years of Experience</strong>
+            </div>
+          </div>
+          <div className="trust-badge">
+            <FontAwesomeIcon icon={faCircleCheck} aria-hidden="true" />
+            <div>
+              <span>Verified Experience</span>
+              <strong>1,000+ Customers Served</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 export function ServiceCard({ service }: { service: Service }) { return <article className="service-card"><div className="service-card__image" style={{ backgroundImage: `linear-gradient(180deg, transparent 15%, rgba(0,0,0,.78)), url(${service.image})` }}><div className="service-icon"><FontAwesomeIcon icon={iconMap[service.icon]} /></div><span className="service-card__eyebrow">{service.eyebrow}</span></div><div className="service-card__body"><h3>{service.title}</h3><p>{service.description}</p><div className="service-card__actions"><Link className="text-link" href={`/services/${service.slug}`}>View details <FontAwesomeIcon icon={faArrowRight} /></Link><button className="mini-book" onClick={() => openBooking()}>Book <FontAwesomeIcon icon={faArrowRight} /></button></div></div></article>; }
 export function VehicleCard({ vehicle, showVehicleSelection = false }: { vehicle: Vehicle; showVehicleSelection?: boolean }) { return <article className="vehicle-card"><Link href={`/fleet/${vehicle.slug}`} className="vehicle-card__image" style={vehicle.image ? { backgroundImage: `linear-gradient(180deg, transparent 30%, rgba(0,0,0,.78)), url(${vehicle.image})` } : undefined}><span className="vehicle-category">{vehicle.category}</span><span className="vehicle-arrow"><FontAwesomeIcon icon={faArrowRight} /></span></Link><div className="vehicle-card__body"><Link href={`/fleet/${vehicle.slug}`}><h3>{vehicle.name}</h3></Link><p>{vehicle.intro}</p><div className="vehicle-card__footer"><span><FontAwesomeIcon icon={faCarSide} /> Private travel</span><button className="mini-book" onClick={() => openBooking(vehicle.name, { showVehicleSelection })}>Book <FontAwesomeIcon icon={faArrowRight} /></button></div></div></article>; }
 

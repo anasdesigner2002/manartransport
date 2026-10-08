@@ -15,6 +15,7 @@ import {
   ReelStrip,
   ServiceCard,
   Ticker,
+  TrustExperience,
 } from "@/components/home/HomeSections";
 import PilgrimageUtilities from "@/components/home/PilgrimageUtilities";
 import { faqs, imageSources, services, vehicles } from "@/data/siteData";
@@ -33,6 +34,7 @@ export default function Home() {
     <div className="home-page">
       <Hero />
       <Ticker />
+      <TrustExperience />
       <section className="section section--services container">
         <SectionHeading
           eyebrow="The Manar standard"
