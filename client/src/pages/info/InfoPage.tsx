@@ -60,25 +60,27 @@ export default function InfoPage() {
           </div>
         </div>
       </section>
-      <section className="section section--soft container info-faq">
-        <div>
-          <span className="eyebrow">Frequently asked</span>
-          <h2>
-            Good questions
-            <br />
-            <em>make good journeys.</em>
-          </h2>
-        </div>
-        <div className="faq-list">
-          {faqs.map(faq => (
-            <details key={faq.question}>
-              <summary>
-                {faq.question}
-                <span>+</span>
-              </summary>
-              <p>{faq.answer}</p>
-            </details>
-          ))}
+      <section className="section section--soft info-faq">
+        <div className="container info-faq__layout">
+          <div className="info-faq__heading">
+            <span className="eyebrow">Frequently asked</span>
+            <h2>
+              Good questions
+              <br />
+              <em>make good journeys.</em>
+            </h2>
+          </div>
+          <div className="faq-list">
+            {faqs.map(faq => (
+              <details key={faq.question}>
+                <summary>
+                  {faq.question}
+                  <span aria-hidden="true">+</span>
+                </summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
       <BookingCTA />

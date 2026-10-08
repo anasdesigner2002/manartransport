@@ -17,7 +17,7 @@ export type Service = {
   description: string;
   image: string;
   icon: string;
-  details: string[];
+  serviceCopy: string[];
 };
 
 export const services: Service[] = [
@@ -28,7 +28,10 @@ export const services: Service[] = [
     description: "A calm, punctual welcome from the terminal to your hotel, residence, or next connection.",
     image: imageSources.airportPickDropService,
     icon: "plane",
-    details: ["Meet-and-greet flow", "Flexible arrival coordination", "Luggage-conscious vehicles"],
+    serviceCopy: [
+      "We provide thoughtful and reliable transportation services for guests travelling to and around Makkah, with comfort, convenience, and peace of mind at the heart of every journey.",
+      "Our private transfer services include 24/7 airport pick-ups and drop-offs, seamless transportation between hotels and key locations across Makkah, and guided Ziyarat tours. With dependable service and comfortable vehicles, we make every journey smooth, stress-free, and well organized—allowing you to focus on your spiritual experience.",
+    ],
   },
   {
     slug: "makkah-transfers",
@@ -37,7 +40,10 @@ export const services: Service[] = [
     description: "Thoughtful transportation for guests travelling to and around Makkah with comfort in mind.",
     image: imageSources.makkahTransfersService,
     icon: "mosque",
-    details: ["Hotel and station connections", "Family-friendly coordination", "Professional driver support"],
+    serviceCopy: [
+      "Our Makkah transfer service provides convenient door-to-door transportation between hotels, Masjid Al-Haram, residential areas, and other important destinations across the city. Whether you are travelling for Umrah, prayer, Ziyarat, or daily arrangements, our professional drivers and well-maintained vehicles help make every journey comfortable and hassle-free.",
+      "We understand that travelling around Makkah can become challenging during busy periods, particularly around the central area of Masjid Al-Haram. Our service is designed to provide a dependable transportation option while allowing flexibility for families, elderly guests, and groups. With private vehicles, convenient pick-up arrangements, and service available around the clock, you can travel with greater comfort and peace of mind.",
+    ],
   },
   {
     slug: "madinah-transfers",
@@ -46,7 +52,10 @@ export const services: Service[] = [
     description: "Reliable connections for Madinah stays, airport movements, and intercity travel planning.",
     image: imageSources.madinahTransfersService,
     icon: "landmark",
-    details: ["Intercity coordination", "Comfort-first routing", "Clear WhatsApp follow-up"],
+    serviceCopy: [
+      "Our Madinah transfer services provide private transportation between hotels, Prince Mohammad bin Abdulaziz International Airport, Masjid an-Nabawi, and other important locations throughout the city. Whether you are arriving in Madinah, travelling to your hotel, visiting Ziyarat locations, or preparing for your onward journey, we make transportation simple and well organized.",
+      "From individual travellers and families to larger groups, we offer suitable vehicle options based on your passenger and luggage requirements. Our drivers focus on punctual pick-ups, comfortable journeys, and respectful service, giving you more time to concentrate on your visit and spiritual experience.",
+    ],
   },
   {
     slug: "ziyarat-transportation",
@@ -55,7 +64,11 @@ export const services: Service[] = [
     description: "Private transportation for planned Ziyarat visits, paced around your group and itinerary.",
     image: imageSources.ziyaratTransportationService,
     icon: "route",
-    details: ["Private group journeys", "Flexible day planning", "Local route placeholder"],
+    serviceCopy: [
+      "Our Ziyarat transportation service is designed for pilgrims who wish to visit important Islamic and historical locations in and around the holy cities. We provide private vehicles for planned Ziyarat journeys, allowing families and groups to travel together at their own pace without the inconvenience of arranging separate transportation for each destination.",
+      "In Makkah, journeys can include important locations such as Jabal Al-Noor, Jabal Thawr, Arafat and other significant sites. In Madinah, transportation can be arranged for visits to locations such as Masjid Quba, Jabal Uhud and other historic sites. Visit Saudi's current Umrah and Ziyarah experiences similarly highlight destinations including Masjid Al-Haram, Jabal Al-Noor, Quba Mosque and Jabal Uhud.",
+      "Our goal is to make every Ziyarat journey comfortable, flexible, and respectful, with experienced drivers, convenient pick-up and drop-off arrangements, and vehicles suited to your group.",
+    ],
   },
   {
     slug: "intercity-transportation",
@@ -64,7 +77,10 @@ export const services: Service[] = [
     description: "Connect cities and stays with a calm, private travel experience for individuals and groups.",
     image: imageSources.intercityTransfersService,
     icon: "road",
-    details: ["Point-to-point planning", "Comfortable long-distance travel", "Vehicle options by group size"],
+    serviceCopy: [
+      "Travel comfortably between Makkah, Madinah, Jeddah, and other key destinations with our reliable private intercity transfer service.",
+      "Enjoy door-to-door transportation in comfortable, air-conditioned vehicles with convenient scheduling for individuals, families, and groups. We make long-distance journeys simple, comfortable, and hassle-free.",
+    ],
   },
   {
     slug: "vip-transportation",
@@ -73,7 +89,10 @@ export const services: Service[] = [
     description: "A discreet, polished travel layer for guests who value privacy, presentation, and ease.",
     image: imageSources.vipTransportationService,
     icon: "star",
-    details: ["Premium vehicle options", "Chauffeur-style service", "Priority coordination"],
+    serviceCopy: [
+      "Experience a more private and personalized journey with our premium VIP transportation services across Makkah, Madinah, Jeddah, and surrounding destinations.",
+      "From airport transfers to Ziyarat and intercity travel, our VIP service offers premium vehicles, professional drivers, flexible scheduling, and a higher level of comfort and privacy.",
+    ],
   },
 ];
 
@@ -108,7 +127,7 @@ export const vehicles: Vehicle[] = [
     intro: "Top choice for economy travel, seating up to 7 passengers with room for 10 bags.",
     description: "Premium transport for Hajj, Umrah, and sightseeing in Makkah and Madinah. Travel with professional multilingual drivers, 24/7 customer assistance, and carefully coordinated airport and hotel transfers for a smooth journey.",
     image: imageSources.stariaExterior,
-    gallery: [imageSources.stariaExterior, imageSources.stariaExteriorSide, imageSources.stariaExteriorFront, imageSources.stariaInterior],
+    gallery: [imageSources.stariaExterior, imageSources.stariaExteriorSide, imageSources.stariaExteriorFront],
     features: ["Multilingual drivers", "24/7 customer assistance", "Latest-model luxury vehicles", "Airport and hotel pick-up and drop-off", "Professional Umrah guidance", "Makkah and Madinah city tours"],
     seats: "7 passengers",
     luggage: "10 bags",

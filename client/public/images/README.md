@@ -12,10 +12,9 @@ Replace a JPG with another image using the same filename to update every section
 | `umrah.jpg` | Umrah content |
 | `pilgrimage.jpg` | Pilgrimage content and travel highlights |
 | `airport-service.jpg` | Airport service and van imagery |
-| `Hyundai Staria 2025-26.jpg` | Staria fleet image and gallery |
+| `Hyundai Staria 2025-26-1.jpg` | Staria fleet image and gallery |
 | `Hyundai Staria 2025-26-2.jpg` | Staria gallery |
 | `Hyundai Staria 2025-26-3.jpg` | Staria gallery |
-| `Hyundai Staria 2025-26-4.jpg` | Staria gallery |
 | `makkah-service.jpg` | Makkah transfer service |
 | `madinah-service.jpg` | Madinah transfer service |
 | `ziyarat-service.jpg` | Ziyarat service |

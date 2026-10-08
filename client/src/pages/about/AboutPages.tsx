@@ -2,15 +2,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
   faCompass,
+  faEnvelope,
   faHeart,
+  faMessage,
   faShieldHalved,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "wouter";
 import { useEffect } from "react";
 import { PageIntro, BookingCTA } from "@/pages/PageBlocks";
 import { SectionHeading } from "@/components/ui/BrandPrimitives";
-import { imageSources } from "@/data/siteData";
+import { contact, imageSources } from "@/data/siteData";
 import { setPageMetadata } from "@/utils/metadata";
+import { buildWhatsAppContactUrl } from "@/utils/whatsapp";
 
 export function AboutPage() {
   useEffect(() => {
@@ -24,7 +27,7 @@ export function AboutPage() {
       <PageIntro
         eyebrow="About Manar"
         title="The journey is part of the welcome."
-        body="Manar Transport is shaped around the simple belief that getting there should feel as considered as the place you are going."
+        body="Manar Transport supports pilgrims and travel partners with private transportation across Saudi Arabia, with comfort, safety, and punctuality at the heart of every journey."
         image={imageSources.company}
       />
       <section className="section container about-intro">
@@ -39,14 +42,24 @@ export function AboutPage() {
         </div>
         <div>
           <p>
-            From airport arrivals to Makkah, Madinah, and Ziyarat
-            transportation, our service is designed to make a complex travel day
-            feel more composed.
+            Welcome to Manar Transport, your travel partner for Hajj and Umrah.
+            We provide private taxi and VIP transfers for guests travelling
+            across Saudi Arabia, making each journey feel more comfortable,
+            dependable, and straightforward.
           </p>
           <p>
-            We keep the first step simple: a clear request, a direct WhatsApp
-            conversation, and a human follow-up that confirms availability and
-            final details.
+            Whether you need a Jeddah Airport transfer to Makkah, a journey
+            between Makkah and Madinah, or local transportation in the holy
+            cities, our team helps coordinate the details from pick-up through
+            arrival. We also support travel partners and agencies with clear,
+            direct booking coordination.
+          </p>
+          <p>
+            Arrange airport pick-ups and drop-offs, hotel transfers, and
+            personalized Ziyarat and historical sightseeing journeys in
+            Makkah, Madinah, Jeddah, Taif, and Badr. Share your route and
+            requirements in advance so the team can follow up on availability
+            and the arrangements for your trip.
           </p>
         </div>
       </section>
@@ -55,31 +68,31 @@ export function AboutPage() {
           <SectionHeading
             eyebrow="What guides us"
             title="Our mission lives in the details."
-            body="The company story, impact metrics, and final claims should be updated with approved Manar Transport content as it becomes available."
+            body="We focus on the practical details that help pilgrims, families, and travel partners feel more prepared on the road."
           />
           <div className="values-grid">
             <div>
               <FontAwesomeIcon icon={faShieldHalved} />
               <h3>Safety &amp; comfort</h3>
               <p>
-                Plan the route carefully, respect the pace of the traveller, and
-                keep the experience calm.
+                Travel in a modern, well-maintained choice of sedans, SUVs, and
+                family vans, with care for your route, group, and luggage.
               </p>
             </div>
             <div>
               <FontAwesomeIcon icon={faCompass} />
               <h3>Reliability</h3>
               <p>
-                Make the next step clear, from the first WhatsApp message to the
-                final arrival.
+                Our support team is available around the clock to coordinate
+                bookings, flight adjustments, and travel questions.
               </p>
             </div>
             <div>
               <FontAwesomeIcon icon={faHeart} />
               <h3>Hospitality</h3>
               <p>
-                Serve people with warmth and professionalism across every kind
-                of journey.
+                Professional, multilingual local drivers provide courteous
+                service and help you travel with greater peace of mind.
               </p>
             </div>
           </div>
@@ -93,14 +106,40 @@ export function AboutPage() {
         <div>
           <span className="eyebrow">Our impact</span>
           <h2>
-            Room to grow,
+            Peace of mind
             <br />
-            <em>without losing care.</em>
+            <em>on every route.</em>
           </h2>
           <p>
-            [ADD COMPANY CONTENT] Add approved company impact information here.
-            Do not add fleet counts, reviews, awards, or years of experience
-            until confirmed.
+            Avoid the uncertainty of last-minute taxi arrangements and
+            unpredictable local fares. We offer fixed, competitive fares with
+            no hidden charges. Arrange your ride in advance through WhatsApp or
+            our online platform, and our team will follow up to confirm
+            availability and trip details.
+          </p>
+          <p>
+            From airport arrivals to your onward journey, we bring together
+            private city transfers, intercity routes, and guided Ziyarat
+            journeys. Travel agencies and tour operators can also contact our
+            team to discuss booking arrangements suited to their guests.
+          </p>
+          <div className="about-impact__contacts" aria-label="Contact Manar Transport">
+            <a
+              className="text-link"
+              href={buildWhatsAppContactUrl()}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FontAwesomeIcon icon={faMessage} />
+              WhatsApp {contact.whatsapp}
+            </a>
+            <a className="text-link" href={`mailto:${contact.email}`}>
+              <FontAwesomeIcon icon={faEnvelope} />
+              {contact.email}
+            </a>
+          </div>
+          <p className="about-impact__pricing-note">
+            Confirm your route and agreed fare with the team before travel.
           </p>
           <Link className="text-link" href="/about/our-story">
             Read our story <FontAwesomeIcon icon={faArrowRight} />

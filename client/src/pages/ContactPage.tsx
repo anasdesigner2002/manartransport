@@ -83,7 +83,7 @@ export default function ContactPage() {
               <FontAwesomeIcon icon={faPhone} />
               <span>
                 <small>Business hours</small>
-                <strong>[ADD BUSINESS HOURS]</strong>
+                <strong>24/7</strong>
               </span>
             </div>
           </div>
@@ -161,26 +161,6 @@ export default function ContactPage() {
               </details>
             ))}
           </div>
-          <p className="faq-sources">
-            Reference reading:{" "}
-            <a
-              href="#"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Visit Saudi FAQ
-            </a>{" "}
-            and{" "}
-            <a
-              href="https://travel.state.gov/en/international-travel/planning/safety-tips/hajj-and-umrah-pilgrimage-travel.html"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Hajj and Umrah travel guidance
-            </a>
-            . These links are informational, not a substitute for official visa
-            or religious advice.
-          </p>
         </div>
       </section>
       <section className="section section--soft">

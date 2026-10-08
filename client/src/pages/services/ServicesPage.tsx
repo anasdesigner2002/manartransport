@@ -58,15 +58,9 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
             <br />
             <em>with clarity.</em>
           </h2>
-          <p>
-            {service.description} This page is designed for the final approved
-            service copy, route guidance, and booking notes.
-          </p>
-          <div className="feature-list">
-            {service.details.map(detail => (
-              <span key={detail}>↗ {detail}</span>
-            ))}
-          </div>
+          {service.serviceCopy.map(paragraph => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
         </div>
         <div className="detail-panel">
           <span className="panel-label">Booking note</span>
