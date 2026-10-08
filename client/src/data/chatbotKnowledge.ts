@@ -1,4 +1,4 @@
-import { contactFaqs } from "@/data/siteData";
+import { contact, contactFaqs } from "@/data/siteData";
 
 export type ChatLanguage =
   "english" | "urdu" | "hindi" | "arabic" | "roman_urdu";
@@ -168,14 +168,12 @@ export const chatbotKnowledge: ChatFaq[] = [
 
 export const chatbotFallback: Record<ChatLanguage, string> = {
   english:
-    "Thank you for your question. I do not have a verified answer for this specific query in my knowledge base. Please contact our team on +92 315 8242 773 or careers.aximuscode@gmail.com.",
-  urdu: "آپ کے سوال کا شکریہ۔ اس سوال کا تصدیق شدہ جواب میری معلومات میں موجود نہیں ہے۔ براہ کرم +92 315 8242 773 یا careers.aximuscode@gmail.com پر رابطہ کریں۔",
+    `Thank you for your question. I do not have a verified answer for this specific query in my knowledge base. Please contact our team on ${contact.whatsapp} or ${contact.email}.`,
+  urdu: `آپ کے سوال کا شکریہ۔ اس سوال کا تصدیق شدہ جواب میری معلومات میں موجود نہیں ہے۔ براہ کرم ${contact.whatsapp} یا ${contact.email} پر رابطہ کریں۔`,
   hindi:
-    "आपके प्रश्न के लिए धन्यवाद। इस प्रश्न का सत्यापित उत्तर मेरे ज्ञान आधार में उपलब्ध नहीं है। कृपया +92 315 8242 773 या careers.aximuscode@gmail.com पर संपर्क करें।",
-  arabic:
-    "شكرًا لسؤالك. لا تتوفر لدي إجابة موثقة لهذا السؤال في قاعدة معلوماتي. تواصلوا معنا على +92 315 8242 773 أو careers.aximuscode@gmail.com.",
-  roman_urdu:
-    "Aap ke sawal ka shukriya. Is sawal ka verified jawab meri knowledge base mein available nahi hai. +92 315 8242 773 ya careers.aximuscode@gmail.com par contact karein.",
+    `आपके प्रश्न के लिए धन्यवाद। इस प्रश्न का सत्यापित उत्तर मेरे ज्ञान आधार में उपलब्ध नहीं है। कृपया ${contact.whatsapp} या ${contact.email} पर संपर्क करें।`,
+  arabic: `شكرًا لسؤالك. لا تتوفر لدي إجابة موثقة لهذا السؤال في قاعدة معلوماتي. تواصلوا معنا على ${contact.whatsapp} أو ${contact.email}.`,
+  roman_urdu: `Aap ke sawal ka shukriya. Is sawal ka verified jawab meri knowledge base mein available nahi hai. ${contact.whatsapp} ya ${contact.email} par contact karein.`,
 };
 
 export function normalizeQuestion(value: string) {
