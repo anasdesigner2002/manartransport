@@ -27,14 +27,17 @@ export function AboutPage() {
         image={imageSources.company}
       />
       <section className="section container about-intro">
-        <div>
-          <img className="about-intro__logo" src="/images/logo.png" alt="Manar Transport logo" />
-          <span className="eyebrow">About Manar Transport</span>
-          <h2>
-            Dependable travel
-            <br />
-            <em>for your sacred journey.</em>
-          </h2>
+        <div className="about-intro__header">
+          <div className="about-intro__brand-block">
+            <img className="about-intro__logo" src="/images/logo.png" alt="Manar Transport logo" />
+          </div>
+          <div className="about-intro__heading">
+            <span className="eyebrow eyebrow--about-inline">ABOUT MANAR TRANSPORT</span>
+            <h2 className="about-intro__title">
+              <span>Welcome to Manar Transport</span>
+              <span className="about-intro__title--highlight">Your Trusted Travel Partner for Hajj &amp; Umrah</span>
+            </h2>
+          </div>
         </div>
         <div className="about-intro__copy">
           <p>
@@ -50,6 +53,21 @@ export function AboutPage() {
             peaceful transfer from Makkah to Madinah, or convenient local
             travel within the holy cities, Manar Transport ensures a
             stress-free experience from start to finish.
+          </p>
+          <h3>Why Choose Manar Transport?</h3>
+          <p>
+            <strong>24/7 Dedicated Support:</strong> Our customer assistance
+            team is available round-the-clock to manage your bookings, flight
+            adjustments, and travel queries.
+          </p>
+          <p>
+            <strong>Modern &amp; Well-Maintained Fleet:</strong> Travel in
+            complete luxury and safety with our updated fleet of sedans, SUVs,
+            and spacious family vans.
+          </p>
+          <p>
+            <strong>Transparent Pricing:</strong> We believe in honest and
+            clear pricing, so you can plan your journey with confidence.
           </p>
         </div>
       </section>

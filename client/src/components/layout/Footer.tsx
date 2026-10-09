@@ -23,6 +23,6 @@ export default function Footer() {
       <div><span className="footer-label">Company</span><div className="footer-links"><Link href="/policies/privacy">Privacy Policy</Link><Link href="/policies/terms">Terms &amp; Conditions</Link><Link href="/policies/refund">Refund Policy</Link></div></div>
       <div className="footer-contact"><span className="footer-label">Contact</span><a href={buildWhatsAppContactUrl()} target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faMessage} /> {contact.whatsapp}</a><a href={`mailto:${contact.email}`}><FontAwesomeIcon icon={faEnvelope} /> {contact.email}</a><span><FontAwesomeIcon icon={faLocationDot} /> {contact.address}</span></div>
     </div>
-    <div className="footer-bottom container"><span>© {new Date().getFullYear()} Manar Transport. All rights reserved.</span><span>Built for safe, comfortable movement.</span><span className="footer-credit">Designed &amp; Developed By <a href="https://aximuscodecom.vercel.app" target="_blank" rel="noopener noreferrer">Aximuscode</a></span></div>
+    <div className="footer-bottom container"><span>© <a href="https://aximuscodecom.vercel.app/" target="_blank" rel="noopener noreferrer" className="footer-year-link">{new Date().getFullYear()}</a> Manar Transport. All rights reserved.</span><span>Built for safe, comfortable movement.</span></div>
   </footer>;
 }
